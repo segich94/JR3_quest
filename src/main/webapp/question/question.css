@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Roboto Mono;
+    background-image: url(/images/background.png);
+    background-size: cover;
+    background-position: center;
+}
+
+html, body, .main {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    background: linear-gradient(360deg, #d6d6d600 -100%, #9d9d9d 100%);
+    max-width: 1280px;
+    margin: 110px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 100px;
+    padding-bottom: 90px;
+    border-radius: 20px;
+}
+
+.question {
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+span {
+    font-size: 24px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 100px;
+}
+
+button {
+    padding: 15px 18px;
+    font-size: 15px;
+    border-radius: 8px;
+    border-style: none;
+    background-color: #ffffff;
+}
+
+.retry {
+    background-color: #ffbf00;
+    align-items: flex-end;
+}
+
+.form_retry {
+    direction: rtl;
+}
