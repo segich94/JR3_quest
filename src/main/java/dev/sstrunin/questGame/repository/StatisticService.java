@@ -28,7 +28,7 @@ public class StatisticService {
     }
 
     private String changeResultString(String fromMap, Result result) {
-        String[] parseResult = " ".split(fromMap);
+        String[] parseResult = fromMap.split(" ");
         int win = Integer.parseInt(parseResult[0]);
         int lose = Integer.parseInt(parseResult[1]);
 
@@ -68,6 +68,6 @@ public class StatisticService {
 
     public enum Result {
         WIN,
-        LOSE;
+        LOSE
     }
 }

@@ -3,8 +3,6 @@ package dev.sstrunin.questGame.repository;
 import dev.sstrunin.questGame.entity.Question;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,7 +12,7 @@ class QuestionsRepositoryTest {
     @Disabled
     @Test
     void parseQuestionPositive(){
-        List<Question> questions = new ArrayList<>();
+        List<Question> questions;
 
         Question exceptQuestion = new Question();
         exceptQuestion.setId(0);

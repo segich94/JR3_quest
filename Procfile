@@ -1,1 +1,1 @@
-web: java -war target/JavarushProject3.war
+web: java -war target/JavarushProject3.war --port $PORT
