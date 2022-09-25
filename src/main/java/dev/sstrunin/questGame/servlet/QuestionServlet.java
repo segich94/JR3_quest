@@ -28,6 +28,11 @@ public class QuestionServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=UTF-8");
+        generateQuestion(req);
+        getServletContext().getRequestDispatcher("/question/question.jsp").forward(req, resp);
+    }
+
+    private HttpServletRequest generateQuestion(HttpServletRequest req){
         User user = (User) req.getSession().getAttribute("user");
         int questionId = user.getLevel();
         Question question = questionsRepository.getQuestions().get(questionId);
@@ -35,20 +40,6 @@ public class QuestionServlet extends HttpServlet {
         req.setAttribute("answer1", question.getAnswer1());
         req.setAttribute("answer2", question.getAnswer2());
         LOGGER.info("Question: {} User: {} Session: {}",question.getQuestion(),user,req.getSession());
-        getServletContext().getRequestDispatcher("/question/question.jsp").forward(req, resp);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html;charset=UTF-8");
-        User user = (User) req.getSession().getAttribute("user");
-
-        int questionId = user.getLevel();
-        Question question = questionsRepository.getQuestions().get(questionId);
-        req.setAttribute("question", question.getQuestion());
-        req.setAttribute("answer1", question.getAnswer1());
-        req.setAttribute("answer2", question.getAnswer2());
-
-
+        return req;
     }
 }

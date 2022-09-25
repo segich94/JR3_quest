@@ -1,6 +1,7 @@
-name: Java CI
+name: JavaCI
 
-on: pull_request:
+on:
+  pull_request:
     branches:
       - '*'
 jobs:

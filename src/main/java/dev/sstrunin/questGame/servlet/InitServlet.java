@@ -1,6 +1,7 @@
 package dev.sstrunin.questGame.servlet;
 
 import dev.sstrunin.questGame.entity.User;
+import dev.sstrunin.questGame.repository.StatisticService;
 import dev.sstrunin.questGame.repository.UsersRepository;
 
 import javax.servlet.ServletConfig;
@@ -14,36 +15,32 @@ import java.io.IOException;
 
 @WebServlet(name = "initServlet", value = "/init")
 public class InitServlet extends HttpServlet {
-    UsersRepository usersRepository;
-
-
+    private UsersRepository usersRepository;
+    private StatisticService statisticService;
     @Override
     public void init(ServletConfig config) throws ServletException {
         usersRepository = UsersRepository.getInstance();
+        statisticService = new StatisticService();
         super.init(config);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
 
         String username = req.getParameter("username");
-        System.out.println(username);
-        User user;
         HttpSession session = req.getSession();
         if (session.getAttribute("username") != null) {
             resp.sendRedirect("question");
         }
-
+        User user;
         if (usersRepository.isUsernameExist(username)) {
             user = usersRepository.getUserByName(username);
         } else {
             user = usersRepository.addUser(username);
+            statisticService.addUserToStatistic(user);
         }
         session.setAttribute("user", user);
-        req.setAttribute("user", user);
         resp.sendRedirect("question");
-
-
     }
 }

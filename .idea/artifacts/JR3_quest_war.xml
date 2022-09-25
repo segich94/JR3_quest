@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="JR3_quest:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>JR3_quest</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="JavarushProject3.war">
+      <element id="artifact" artifact-name="JR3_quest:war exploded" />
+    </root>
+  </artifact>
+</component>

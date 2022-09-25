@@ -15,7 +15,6 @@ import java.io.IOException;
 public class StartServlet extends HttpServlet {
     private final static Logger LOGGER = LogManager.getLogger(StartServlet.class);
 
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LOGGER.info("Connect: session {}",req.getSession());
