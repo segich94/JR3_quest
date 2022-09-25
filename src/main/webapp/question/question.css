@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Roboto Mono;
+    background-image: url(/images/background.png);
+    background-size: cover;
+    background-position: center;
+}
+
+html, body, .main {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    background: linear-gradient(360deg, #d6d6d600 -100%, #9d9d9d 100%);
+    max-width: 1280px;
+    margin: 110px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 70px;
+    padding-bottom: 80px;
+    border-radius: 20px;
+}
+
+.question {
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+span {
+    font-size: 24px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.options {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+}
+
+button {
+    padding: 15px 18px;
+    font-size: 16px;
+    border-radius: 8px;
+    border-style: none;
+    background-color: #ffffff;
+    cursor:pointer;
+}
+
+.info_buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.retry {
+    align-items: flex-end;
+    margin-top: 10px;
+    padding: 10px 18px;
+    font-size: 20px;
+    border-radius: 8px;
+    border-style: none;
+    background-color: #ffbf00;
+    text-decoration: none;
+    color: #000000;
+}
+
+.form_retry {
+    direction: rtl;
+}
+
+.popup_button {
+    margin-top: 10px;
+    padding: 10px 18px;
+    font-size: 20px;
+    border-radius: 8px;
+    border-style: none;
+    background-color: #ffbf00;
+    text-decoration: none;
+    color: #000000;
+    align-items: flex-end;
+}
+
+#popup_background {
+    background: rgb(0 0 0 / 50%);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.popup {
+    max-width: 550px;
+    max-height: 300px;
+    padding: 20px;
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    border-bottom: 1px dotted #C2C2C2; /* Необязателен. Здесь задается толщина, тип и цвет точек */
+    position: relative;
+    padding: 0;
+    margin-bottom:15px; /* Необязателен. Задается для установки расстояния между блоками li */
+}
+
+ul li span {
+    background-color: #FFF; /* Это необходимо, чтобы перекрыть точки фоном */
+    margin: 0;
+}
+
+ul li span.type, ul li span.number {
+    bottom: -5px; /* Смещаем значимые блоки, чтобы они перекрыли точки */
+}
+
+ul span.type {
+    position :relative;
+    margin-right:14em; /* Задается чтобы текст не заходил на номера страниц */
+    padding-right:2px; /* Необязателен. Задается чтобы точки не подходили вплотную к концу текста */
+}
+
+ul span.number {
+    position: absolute;
+    right: 0;
+    padding-left:2px; /* Необязателен. Задается чтобы точки не подходили вплотную к номерам страниц */
+}
+
+#popup_background:target {display: block;}
+.close {
+    display: inline-block;
+    border-radius: 8px;
+    border-style: none;
+    background-color: #ffbf00;
+    text-decoration: none;
+    color: #000000;
+    padding: 10px 18px;
+    margin: 10px;
+    font-size: 14pt;
+    cursor:pointer;
+}
+
+.popup_button:hover,
+.close:hover,
+.retry:hover {
+    background: hsla(45, 100%, 50%, 0.687);
+}
+
+.buttons button:hover {
+    background: hsla(0, 0%, 100%, 0.687);
+}
