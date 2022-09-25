@@ -2,10 +2,12 @@ package dev.sstrunin.questGame.servlet;
 
 import dev.sstrunin.questGame.entity.User;
 import dev.sstrunin.questGame.repository.StatisticService;
+
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+@WebServlet(name = "statisticServlet", value = "/statistic")
 public class StatisticServlet extends HttpServlet {
     private StatisticService statisticService = new StatisticService();
 

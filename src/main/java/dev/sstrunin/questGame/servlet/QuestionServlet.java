@@ -3,6 +3,7 @@ package dev.sstrunin.questGame.servlet;
 import dev.sstrunin.questGame.entity.Question;
 import dev.sstrunin.questGame.entity.User;
 import dev.sstrunin.questGame.repository.QuestionsRepository;
+import dev.sstrunin.questGame.repository.StatisticService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -18,17 +19,22 @@ import java.io.IOException;
 public class QuestionServlet extends HttpServlet {
     private static final Logger LOGGER = LogManager.getLogger(QuestionServlet.class);
     private QuestionsRepository questionsRepository;
-
+    private StatisticService statisticService;
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
         questionsRepository = new QuestionsRepository();
+        statisticService = new StatisticService();
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=UTF-8");
         generateQuestion(req);
+        User user = (User) req.getSession().getAttribute("user");
+        req.setAttribute("win", statisticService.winCount(user));
+        req.setAttribute("lose", statisticService.loseCount(user));
+        req.setAttribute("attempts", statisticService.countOfAttempt(user));
         getServletContext().getRequestDispatcher("/question/question.jsp").forward(req, resp);
     }
 

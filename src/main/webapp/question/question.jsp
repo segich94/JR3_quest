@@ -25,12 +25,33 @@
                         <button value="option2">${requestScope.get("answer2")}</button>
                     </form>
                 </div>
-                <form action="/restart" method="post" class="buttons form_retry">
-                    <button class="retry">Начать заново</button>
-                </form>
+                <div class="info_buttons">
+                    <form action="/restart" method="post" class="form_retry">
+                        <button class="retry">Начать заново</button>
+                    </form>
+                    <a href="#popup_background" class="popup_button">Статистика</a>
+
+                </div>
             </div>
         </div>
-        <div class="statistic">
+        <div id="popup_background">
+            <div class="popup">
+                <ul>
+                    <li>
+                        <span class="type">Победы</span>
+                        <span class="number">${requestScope.get("win")}</span>
+                    </li>
+                    <li>
+                        <span class="type">Поражения</span>
+                        <span class="number">${requestScope.get("lose")}</span>
+                    </li>
+                    <li>
+                        <span class="type">Всего</span>
+                        <span class="number">${requestScope.get("attempts")}</span>
+                    </li>
+                </ul></br>
+                <a href="#" class="close">Закрыть</a>
+            </div>
         </div>
     </div>
 </div>

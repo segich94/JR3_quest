@@ -17,7 +17,6 @@ public class RestartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         User user = (User) req.getSession().getAttribute("user");
         user.setLevel(0);
-        statisticService.addStatistic(user, StatisticService.Result.LOSE);
         resp.sendRedirect("question");
     }
 }

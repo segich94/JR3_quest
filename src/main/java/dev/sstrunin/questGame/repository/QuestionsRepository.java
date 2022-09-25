@@ -16,8 +16,8 @@ public class QuestionsRepository {
 
     private static final Logger LOGGER = LogManager.getLogger(QuestionsRepository.class);
     private final List<Question> questions = new ArrayList<>();
-    public static final String WIN_GAME = "Поздравляю \n Ты выйграл.";
-    public static final String LOSE_GAME = "Ты проиграл=(";
+    public static final String WIN_GAME = "Поздравляю! \n Ты победил. =)";
+    public static final String LOSE_GAME = "Ты проиграл =(";
 
     public void parseQuestion() {
         ObjectMapper objectMapper = new ObjectMapper();

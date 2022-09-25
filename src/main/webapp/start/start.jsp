@@ -14,10 +14,10 @@
         <div class="container">
             <h2>Привет! Как тебя зовут?</h2>
             <form action=/init method="post">
-                <label>Name:
+                <label>Имя:
                     <input type="text" name="username" required pattern="\S*"><br/>
                 </label>
-                <button type="submit">Submit</button>
+                <button type="submit">Подтвердить</button>
             </form>
         </div>
     </div>
